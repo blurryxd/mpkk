@@ -1,3 +1,14 @@
+http://users.metropolia.fi/~juhohuh/mpkk/w2-http+route/
+<br>
+Tossa on muuten ongelmia sen routingin takia. Koska home vie '/' ns suoraan indexiin, se vie suoraan users.metropolia.fi/ sivulle.
+<br>
+Sitten myöskin aloitussivulle ei lataudu mitään ennenkuin painaa home nappia, koska homen sisältö on rakennettu '/' taakse.
+<br>
+<br>
+____________________________
+<br>
+<br>
+<br>
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
