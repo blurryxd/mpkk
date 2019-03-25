@@ -1,7 +1,5 @@
-# Tehtävien palautusta
-
-<a href=https://github.com/blurryxd/mpkk/tree/week1_first-app>Viikko 1 - my-app</a>
+http://users.metropolia.fi/~juhohuh/mpkk/w2-http+route/
 <br>
-<a href=https://github.com/blurryxd/mpkk/tree/week1_http-a>Viikko 1 - http-a</a>
+Tossa on muuten ongelmia sen routingin takia. Koska home vie '/' ns suoraan indexiin, se vie suoraan users.metropolia.fi/ sivulle.
 <br>
-<a href=https://github.com/blurryxd/mpkk/tree/week-1-http-b>Viikko 1 - http-b</a>
+Sitten myöskin aloitussivulle ei lataudu mitään ennenkuin painaa home nappia, koska homen sisältö on rakennettu '/' taakse.
