@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 
 class PicArray extends Component {
   render() {
@@ -19,5 +21,9 @@ class PicArray extends Component {
     ))
   }
 }
+
+PicArray.propTypes = {
+  picArray: PropTypes.array,
+};
 
 export default PicArray;

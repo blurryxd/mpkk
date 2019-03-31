@@ -1,6 +1,6 @@
 const apiUrl = 'http://media.mw.metropolia.fi/wbma/media/';
 const loginUrl = 'http://media.mw.metropolia.fi/wbma/login/';
-
+const registerUrl = 'http://media.mw.metropolia.fi/wbma/users/';
 
 const getAllMedia = () => {
   return fetch(apiUrl).then(response => {
@@ -22,27 +22,51 @@ const getSingleMedia = (id) => {
   });
 };
 
-
 const login = (username, password) => {
   return fetch(loginUrl, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({username, password})
-  }).then(response => response.json()).then(json=> {
-    console.log(json);
-    if (json.token){
-      console.log(json.message);
-    } else {
-      console.log(json.message);
-    }
+    body: JSON.stringify({username, password}),
+  }).then(response => response.json()).then(json => {
+    return json;
   });
 };
 
+const checkIfUserNameExists = (username) => {
+  return fetch(registerUrl + 'username/' + username).then(response => {
+    return response.json();
+  }).then(data => {
+    return data;
+  });
+};
 
+const registerUser = (username, password, full_name, email) => {
+  return fetch(registerUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({username, password, full_name, email}),
+  }).then(response => response.json()).then(json => {
+    return json;
+  });
+};
 
+const tokenCheck = (token) => {
+  return fetch(registerUrl + '/user/', {
+    headers: {
+      'x-access-token': token,
+    },
+  }).then(response => response.json()).then(json => {
+    return json;
+  });
+};
 
+export {tokenCheck};
+export {checkIfUserNameExists};
+export {registerUser};
 export {login};
 export {getAllMedia};
 export {getSingleMedia};

@@ -6,7 +6,29 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url('https://pixabay.com/get/eb3db5082ff6053ed1534705fb0938c9bd22ffd41cb4124992f7c87eae/fantasy-2847724_1920.jpg') 50% 0 no-repeat;
+  background-attachment: fixed;
 }
+#container {
+  margin: auto;
+  width: 600px;
+  background-color: rgba(0,0,0,0.7);
+  padding: 30px;
+  border: black 3px solid;
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color:white;
+}
+#container a:link, a:visited, a:hover, a:active {
+  color:white;
+}
+#container img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
