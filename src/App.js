@@ -1,0 +1,86 @@
+import React, {Component} from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import './App.css';
+import {getAllMedia} from './utils/MediaAPI';
+import Nav from './components/Nav';
+import Home from './views/Home';
+import Profile from './views/Profile';
+import Single from './views/Single';
+import Login from './views/Login';
+import {tokenCheck} from './utils/MediaAPI';
+import PropTypes from 'prop-types';
+import {Redirect} from 'react-router';
+import {Grid} from '@material-ui/core';
+import {getAvatar} from './utils/MediaAPI';
+
+class App extends Component {
+  state = {
+    picArray: [],
+    user: [],
+  };
+
+  componentDidMount() {
+    getAllMedia().then(pics => {
+      this.setState({picArray: pics});
+    });
+
+    tokenCheck(localStorage.getItem('Login-token')).then(data => {
+      if (data.message) {
+        this.setState({errorMessage: data.message});
+      } else {
+        this.setState({user: data});
+        this.setState({errorMessage: ''});
+      }
+    });
+  }
+
+  setUser = (data) => {
+    this.setState({user: data.user});
+    localStorage.setItem('Login-token', data.token);
+    this.setState({errorMessage: ''});
+    getAvatar(this.state.user.user_id).then(avatarData => {
+      this.setState({avatar: avatarData});
+    });
+  };
+
+  logout = () => {
+    this.setState({user: ''});
+    this.setState({avatar: null});
+    localStorage.clear();
+    tokenCheck(localStorage.getItem('Login-token')).then(data => {
+      this.setState({errorMessage: data.message});
+    });
+    return <Redirect to='/'/>;
+  };
+
+  render() {
+    return (
+        <Router basename="/~juhohuh/w3-Material-UI">
+          <Grid container>
+            <Grid item md={2} xs={12}>
+              {!this.state.errorMessage && <Nav/>}
+            </Grid>
+            <Grid item md={10} xs={12}>
+              <Route exact path="/" render={(props) => (
+                  <Login {...props} setUser={this.setUser}/>
+              )}/>
+              <Route exact path="/home" render={(props) => (
+                  <Home {...props} picArray={this.state.picArray}/>
+              )}/>
+              <Route exact path="/profile" render={(props) => (
+                  <Profile {...props} user={this.state}/>
+              )}/>
+              <Route exact path="/single/:id" component={Single}/>
+              <Route exact path="/logout" component={this.logout}/>
+            </Grid>
+          </Grid>
+        </Router>
+    );
+  }
+}
+
+App.propTypes = {
+  history: PropTypes.object,
+};
+
+export default App;
