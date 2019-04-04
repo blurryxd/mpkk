@@ -1,4 +1,4 @@
-<h1>[users.metropolia.fi/~juhohuh/mpkk/w3-Material-UI/](users.metropolia.fi/~juhohuh/mpkk/w3-Material-UI/)</h1>
+<h1>http://users.metropolia.fi/~juhohuh/mpkk/w3-Material-UI/</h1>
 
 
 
