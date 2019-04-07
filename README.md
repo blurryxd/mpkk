@@ -1,5 +1,6 @@
-users.metropolia.fi/~juhohuh/mpkk/w3-forms/
-
+<h1>http://users.metropolia.fi/~juhohuh/mpkk/w3-forms/</h1>
+<br>
+Validator formissa username available custom function toimii osittain. Jostain syystä sen jälkeen kun validatorform on ollut false tilassa se ei enään suostu menemään takaisin truehen. En saanut ratkaistua tätä vielä palautukseen.
 ____________________________________________________________
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
