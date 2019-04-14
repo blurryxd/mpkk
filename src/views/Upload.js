@@ -38,7 +38,7 @@ class Upload extends Component {
     fd.append('description', this.state.upload.description);
     fd.append('file', this.state.upload.file);
     console.log(fd);
-    /*fetch('http://media.mw.metropolia.fi/wbma/media', {
+    fetch('http://media.mw.metropolia.fi/wbma/media', {
       method: 'POST',
       headers: {
         'x-access-token': localStorage.getItem('Login-token'),
@@ -51,7 +51,7 @@ class Upload extends Component {
       this.props.updatePics();
       document.querySelector('#lataus').style.display = 'block';
       this.timer = setInterval(this.progress, 200);
-    });*/
+    });
   };
 
   progress = () => {
