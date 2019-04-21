@@ -1,3 +1,9 @@
+users.metropolia.fi/~juhohuh/mpkk/w5-player
+<br>
+Multa jäi "user (to get username you need to request User endpoint using media file's user_id)", ja filtereiden extraction vähän kesken. Niissä tuli muutama onkelma joita en loppujen lopuksi osannut sitten ratkoa. Luulen että jäi aika pienestä kiinni.
+
+________________________________________
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
